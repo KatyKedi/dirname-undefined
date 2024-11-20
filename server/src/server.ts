@@ -17,12 +17,14 @@ const server = new ApolloServer({
   resolvers,
 });
 
-const app = express();
+
 
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async () => {
   await server.start();
   await db;
+
+  const app = express();
 
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
